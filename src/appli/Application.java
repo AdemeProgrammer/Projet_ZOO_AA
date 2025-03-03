@@ -4,7 +4,6 @@ import Zoo.*;
 import Zoo.animaux.*;
 import Zoo.Personne.*;
 import Zoo.enclos.Enclos;
-
 import java.util.Scanner;
 import java.util.ArrayList;
 import java.util.List;
@@ -96,7 +95,6 @@ public class Application {
     private static void ajouterSoigneur() {
         System.out.print("Entrez le nom du soigneur : ");
         String nom = scanner.nextLine();
-
         Soigneur s = new Soigneur(nom, "", "Lion");
         soigneurs.add(s);
         System.out.println(nom + " est prêt à travailler !");
@@ -107,20 +105,17 @@ public class Application {
         String nom = scanner.nextLine();
         System.out.println("Entrez l'âge du client : ");
         int age = scanner.nextInt();
-
         Client c = new Client(nom, age);
         visiteurs.add(c);
-        System.out.println(nom +" est un client qui a "+age+" ans ! (je sais ça fait bizarre dit comme ça mais c'est juste pour flex)");
+        System.out.println(nom +" ajouté à la liste des clients !");
     }
 
     private static void simulerJournee() {
         System.out.println("\n=== NOUVELLE JOURNÉE ===");
-
         for (Enclos e : enclosList) {
             e.setProprete(e.getProprete() - 20);
             System.out.println("Propreté enclos #" + e.getNumeroEnclos() + " : " + e.getProprete() + "%");
         }
-
         if (!soigneurs.isEmpty()) {
             soigneurs.get(0).setEstOccupe(true);
             System.out.println(soigneurs.get(0).getNom() + " nettoie les enclos ! 🧼");
@@ -128,17 +123,30 @@ public class Application {
     }
 
     private static void vendreBillet() {
-        System.out.print("Âge du visiteur : ");
-        int age = scanner.nextInt();
+        if (visiteurs.isEmpty()) {
+            System.out.println("Aucun client enregistré !");
+            return;
+        }
+
+        System.out.println("\n=== LISTE DES CLIENTS ===");
+        for (int i = 0; i < visiteurs.size(); i++) {
+            Client c = visiteurs.get(i);
+            System.out.println((i + 1) + ". " + c.getNom() + " (" + c.getAge() + " ans)");
+        }
+
+        System.out.print("\nChoisissez un client (numéro) : ");
+        int choix = scanner.nextInt();
         scanner.nextLine();
 
-        Client visiteur = new Client();
-        visiteur.setAge(age);
-        double prix = (age < 16) ? 10.0 : 20.0;
+        if (choix < 1 || choix > visiteurs.size()) {
+            System.out.println("Numéro invalide !");
+            return;
+        }
 
-        recettes += prix;
-        visiteurs.add(visiteur);
-        System.out.println("Billet vendu : " + prix + " € 💰");
+        Client clientChoisi = visiteurs.get(choix - 1);
+        clientChoisi.acheterBillet();
+        recettes += clientChoisi.getMontantPaye();
+        System.out.println("Billet vendu à " + clientChoisi.getNom() + " ! 💰");
     }
 
     private static void afficherStatistiques() {
@@ -146,7 +154,7 @@ public class Application {
         System.out.println("Enclos : " + enclosList.size());
         System.out.println("Animaux : " + enclosList.get(0).getAnimaux().size());
         System.out.println("Soigneurs : " + soigneurs.size());
-        System.out.println("Visiteurs aujourd'hui : " + visiteurs.size());
+        System.out.println("Clients enregistrés : " + visiteurs.size());
         System.out.println("Recettes totales : " + recettes + " €");
     }
 }
