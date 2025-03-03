@@ -6,6 +6,35 @@ public class Soigneur {
     private String nom;
     private String prenom;
     private String specialite;
+
+    public boolean isEstOccupe() {
+        return estOccupe;
+    }
+
+    public String getSpecialite() {
+        return specialite;
+    }
+
+    public void setSpecialite(String specialite) {
+        this.specialite = specialite;
+    }
+
+    public String getPrenom() {
+        return prenom;
+    }
+
+    public void setPrenom(String prenom) {
+        this.prenom = prenom;
+    }
+
+    public String getNom() {
+        return nom;
+    }
+
+    public void setNom(String nom) {
+        this.nom = nom;
+    }
+
     private boolean estOccupe;
 
     public Soigneur(String nom, String prenom, String specialite) {
@@ -37,12 +66,6 @@ public class Soigneur {
             System.out.println("Soin impossible !");
         }
     }
-
-    // ================= GETTERS/SETTERS =================
-    public String getNom() { return nom; }
-    public String getPrenom() { return prenom; }
-    public String getSpecialite() { return specialite; }
-    public boolean isEstOccupe() { return estOccupe; }
 
     public void setEstOccupe(boolean etat) {
         this.estOccupe = etat;
