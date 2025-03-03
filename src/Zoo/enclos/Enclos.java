@@ -38,7 +38,6 @@ public class Enclos {
         this.typeEnclos = typeEnclos;
         this.placeEnclos = placeEnclos;
     }
-    // Ajouter ces méthodes et attributs
     private List<Animal> animaux = new ArrayList<>();
     private int proprete = 100;
 

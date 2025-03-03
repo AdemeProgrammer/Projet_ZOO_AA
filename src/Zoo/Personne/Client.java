@@ -7,7 +7,6 @@ public class Client {
     private int age;
     private double montantPaye;
 
-    // ================= CONSTRUCTEUR =================
     public Client(String nom, int age) {
         this.nom = nom;
         this.age = age;
@@ -18,7 +17,6 @@ public class Client {
 
     }
 
-    // ================= METHODES METIER =================
     public void acheterBillet() {
         double prix = calculerTarif();
         this.montantPaye = prix;
@@ -40,7 +38,6 @@ public class Client {
                 + nomSpectacle + "' 👏");
     }
 
-    // ================= GETTERS/SETTERS =================
     public String getNom() { return nom; }
     public int getAge() { return age; }
     public double getMontantPaye() { return montantPaye; }
