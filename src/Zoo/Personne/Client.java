@@ -1,54 +1,50 @@
 package Zoo.Personne;
 
+import Zoo.animaux.Animal;
+
 public class Client {
     private String nom;
     private int age;
-    private String adulteMineur;
-
-    public double getMontantPaye() {
-        return montantPaye;
-    }
-
-    public void setMontantPaye(double montantPaye) {
-        this.montantPaye = montantPaye;
-    }
-
-    public String getAdulteMineur() {
-        return adulteMineur;
-    }
-
-    public void setAdulteMineur(String adulteMineur) {
-        this.adulteMineur = adulteMineur;
-    }
-
-    public int getAge() {
-        return age;
-    }
-
-    public void setAge(int age) {
-        this.age = age;
-    }
-
-    public String getNom() {
-        return nom;
-    }
-
-    public void setNom(String nom) {
-        this.nom = nom;
-    }
-
     private double montantPaye;
 
-    public void acheterBillet(double prix) {
+    // ================= CONSTRUCTEUR =================
+    public Client(String nom, int age) {
+        this.nom = nom;
+        this.age = age;
+        this.montantPaye = 0.0;
+    }
+
+    public Client() {
+
+    }
+
+    // ================= METHODES METIER =================
+    public void acheterBillet() {
+        double prix = calculerTarif();
         this.montantPaye = prix;
-        System.out.println(nom + " a payé " + prix + " pour l'entrée.");
+        System.out.println(nom + " a payé " + prix + "€ pour son billet");
+    }
+
+    private double calculerTarif() {
+        return (age < 16) ? 10.0 : 20.0;
     }
 
     public void interagirAvecAnimal(Animal animal) {
-        System.out.println(nom + " interagit avec l'animal : " + animal.getNomAnimal());
+        System.out.println(nom + " dit : 'Oh ! Regarde le "
+                + animal.getClass().getSimpleName()
+                + " " + animal.getNomAnimal() + "' 🥰");
     }
 
-    public void assisterSpectacle(Spectacle spectacle) {
-        System.out.println(nom + " assiste au spectacle " + spectacle.getNom());
+    public void assisterSpectacle(String nomSpectacle) {
+        System.out.println(nom + " applaudit pendant le spectacle '"
+                + nomSpectacle + "' 👏");
     }
+
+    // ================= GETTERS/SETTERS =================
+    public String getNom() { return nom; }
+    public int getAge() { return age; }
+    public double getMontantPaye() { return montantPaye; }
+
+    public void setNom(String nom) { this.nom = nom; }
+    public void setAge(int age) { this.age = age; }
 }

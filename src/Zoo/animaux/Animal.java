@@ -1,55 +1,15 @@
 package Zoo.animaux;
 
-import org.w3c.dom.ls.LSOutput;
-
 public class Animal {
-    public String getSexeAnimal() {
-        return sexeAnimal;
-    }
-
-    public void setSexeAnimal(String sexeAnimal) {
-        this.sexeAnimal = sexeAnimal;
-    }
-
-    public String getNomAnimal() {
-        return nomAnimal;
-    }
-
-    public void setNomAnimal(String nomAnimal) {
-        this.nomAnimal = nomAnimal;
-    }
-
-    public int getId_animal() {
-        return id_animal;
-    }
-
-    public void setId_animal(int id_animal) {
-        this.id_animal = id_animal;
-    }
-
-    public int getAgeAnimal() {
-        return ageAnimal;
-    }
-
-    public void setAgeAnimal(int ageAnimal) {
-        this.ageAnimal = ageAnimal;
-    }
-
-    public boolean isAnimalFaible() {
-        return animalFaible;
-    }
-
-    public void setAnimalFaible(boolean animalFaible) {
-        this.animalFaible = animalFaible;
-    }
-
+    // ---------- ATTRIBUTS (données) ----------
     private int id_animal;
     private String nomAnimal;
     private String sexeAnimal;
     private int ageAnimal;
     private boolean animalFaible;
 
-    public Animal(int id_animal, String nomAnimal,String sexeAnimal, int ageAnimal, boolean animalFaible) {
+    // ---------- CONSTRUCTEUR (méthode pour créer un animal) ----------
+    public Animal(int id_animal, String nomAnimal, String sexeAnimal, int ageAnimal, boolean animalFaible) {
         this.id_animal = id_animal;
         this.nomAnimal = nomAnimal;
         this.sexeAnimal = sexeAnimal;
@@ -57,14 +17,21 @@ public class Animal {
         this.animalFaible = animalFaible;
     }
 
-    public String faireDubruit(){
-        System.out.println("Agrougrou Agrougrou l'animal sauvage !!!");
-        return faireDubruit();
+    // ---------- METHODES SIMPLES (comportements de base) ----------
+    public String faireDuBruit() {
+        return "Bruit par défaut !"; // Tous les animaux auront ce bruit sauf si on le change
     }
 
-    public String seDeplacer(){
-        return null;
+    public String seDeplacer() {
+        return "Se déplace normalement"; // Déplacement de base
     }
+
+    // ---------- GETTERS/SETTERS (accès aux données) ----------
+    public String getSexeAnimal() { return sexeAnimal; }
+    public String getNomAnimal() { return nomAnimal; }
+    public int getId_animal() { return id_animal; }
+    public int getAgeAnimal() { return ageAnimal; }
+    public boolean isAnimalFaible() { return animalFaible; }
 
     public void setAnimalFaible(boolean etat) {
         this.animalFaible = etat;

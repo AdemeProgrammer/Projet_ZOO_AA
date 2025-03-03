@@ -1,4 +1,8 @@
 package Zoo.enclos;
+import Zoo.animaux.Animal;
+import java.util.ArrayList;
+import java.util.List;
+
 
 public class Enclos {
     public int getNumeroEnclos() {
@@ -29,9 +33,16 @@ public class Enclos {
     private String typeEnclos;
     private String placeEnclos;
 
-    public Enclos(int numeroEnclos, String animalEnlos) {
+    public Enclos(int numeroEnclos, String typeEnclos, String placeEnclos) {
         this.numeroEnclos = numeroEnclos;
         this.typeEnclos = typeEnclos;
         this.placeEnclos = placeEnclos;
     }
+    // Ajouter ces méthodes et attributs
+    private List<Animal> animaux = new ArrayList<>();
+    private int proprete = 100;
+
+    public int getProprete() { return this.proprete; }
+    public void setProprete(int p) { this.proprete = p; }
+    public List<Animal> getAnimaux() { return this.animaux; }
 }
