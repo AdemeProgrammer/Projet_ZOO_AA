@@ -1,4 +1,4 @@
-package Zoo;
+package Zoo.enclos;
 
 public class Enclos {
     public int getNumeroEnclos() {

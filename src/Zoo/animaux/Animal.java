@@ -65,4 +65,8 @@ public class Animal {
     public String seDeplacer(){
         return null;
     }
+
+    public void setAnimalFaible(boolean etat) {
+        this.animalFaible = etat;
+    }
 }
