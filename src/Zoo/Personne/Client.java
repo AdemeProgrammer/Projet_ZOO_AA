@@ -3,6 +3,30 @@ package Zoo.Personne;
 import Zoo.animaux.Animal;
 
 public class Client {
+    public String getNom() {
+        return nom;
+    }
+
+    public void setNom(String nom) {
+        this.nom = nom;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public double getMontantPaye() {
+        return montantPaye;
+    }
+
+    public void setMontantPaye(double montantPaye) {
+        this.montantPaye = montantPaye;
+    }
+
     private String nom;
     private int age;
     private double montantPaye;
@@ -38,10 +62,4 @@ public class Client {
                 + nomSpectacle + "' 👏");
     }
 
-    public String getNom() { return nom; }
-    public int getAge() { return age; }
-    public double getMontantPaye() { return montantPaye; }
-
-    public void setNom(String nom) { this.nom = nom; }
-    public void setAge(int age) { this.age = age; }
 }

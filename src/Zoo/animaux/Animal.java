@@ -4,6 +4,43 @@ public class Animal {
     private int id_animal;
     private String nomAnimal;
     private String sexeAnimal;
+
+    public int getAgeAnimal() {
+        return ageAnimal;
+    }
+
+    public void setAgeAnimal(int ageAnimal) {
+        this.ageAnimal = ageAnimal;
+    }
+
+    public boolean isAnimalFaible() {
+        return animalFaible;
+    }
+
+    public String getSexeAnimal() {
+        return sexeAnimal;
+    }
+
+    public void setSexeAnimal(String sexeAnimal) {
+        this.sexeAnimal = sexeAnimal;
+    }
+
+    public String getNomAnimal() {
+        return nomAnimal;
+    }
+
+    public void setNomAnimal(String nomAnimal) {
+        this.nomAnimal = nomAnimal;
+    }
+
+    public int getId_animal() {
+        return id_animal;
+    }
+
+    public void setId_animal(int id_animal) {
+        this.id_animal = id_animal;
+    }
+
     private int ageAnimal;
     private boolean animalFaible;
 
@@ -22,12 +59,6 @@ public class Animal {
     public String seDeplacer() {
         return "Se déplace normalement";
     }
-
-    public String getSexeAnimal() { return sexeAnimal; }
-    public String getNomAnimal() { return nomAnimal; }
-    public int getId_animal() { return id_animal; }
-    public int getAgeAnimal() { return ageAnimal; }
-    public boolean isAnimalFaible() { return animalFaible; }
 
     public void setAnimalFaible(boolean etat) {
         this.animalFaible = etat;

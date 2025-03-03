@@ -27,11 +27,12 @@ public class Application {
             switch (choix) {
                 case 1: creerEnclos(); break;
                 case 2: ajouterAnimal(); break;
-                case 3: ajouterSoigneur(); break;
-                case 4: simulerJournee(); break;
-                case 5: vendreBillet(); break;
-                case 6: afficherStatistiques(); break;
-                case 7: running = false; break;
+                case 3: ajouterClient(); break;
+                case 4: ajouterSoigneur(); break;
+                case 5: simulerJournee(); break;
+                case 6: vendreBillet(); break;
+                case 7: afficherStatistiques(); break;
+                case 8: running = false; break;
                 default: System.out.println("Option invalide !");
             }
         }
@@ -42,20 +43,19 @@ public class Application {
         System.out.println("\n=== MENU ZOO ===");
         System.out.println("1. Créer un enclos");
         System.out.println("2. Ajouter un animal");
-        System.out.println("3. Engager un soigneur");
-        System.out.println("4. Simuler une journée");
-        System.out.println("5. Vendre un billet");
-        System.out.println("6. Statistiques");
-        System.out.println("7. Quitter");
+        System.out.println("3. Ajouter un client");
+        System.out.println("4. Engager un soigneur");
+        System.out.println("5. Simuler une journée");
+        System.out.println("6. Vendre un billet");
+        System.out.println("7. Statistiques");
+        System.out.println("8. Quitter");
         System.out.print("Votre choix : ");
     }
 
-    // ================= CRÉER UN ENCLOS =================
     private static void creerEnclos() {
         System.out.print("Numéro de l'enclos : ");
         int numero = scanner.nextInt();
         scanner.nextLine();
-
         Enclos nouvelEnclos = new Enclos(numero, "Général", "Zone Principale");
         enclosList.add(nouvelEnclos);
         System.out.println("Enclos #" + numero + " créé ! 🏟️");
@@ -94,12 +94,23 @@ public class Application {
     }
 
     private static void ajouterSoigneur() {
-        System.out.print("Nom du soigneur : ");
+        System.out.print("Entrez le nom du soigneur : ");
         String nom = scanner.nextLine();
 
         Soigneur s = new Soigneur(nom, "", "Lion"); // Spécialiste lions par défaut
         soigneurs.add(s);
-        System.out.println(nom + " est prêt à travailler ! 🩺");
+        System.out.println(nom + " est prêt à travailler !");
+    }
+
+    private static void ajouterClient() {
+        System.out.println("Entrez le nom et le prénom du client : ");
+        String nom = scanner.nextLine();
+        System.out.println("Entrez l'âge du client : ");
+        int age = scanner.nextInt();
+
+        Client c = new Client(nom, age);
+        visiteurs.add(c);
+        System.out.println(nom +" est un client qui a "+age+" ans ! (je sais ça fait bizarre dit comme ça mais c'est juste pour flex)");
     }
 
     private static void simulerJournee() {
@@ -129,7 +140,7 @@ public class Application {
         visiteurs.add(visiteur);
         System.out.println("Billet vendu : " + prix + " € 💰");
     }
-    
+
     private static void afficherStatistiques() {
         System.out.println("\n=== STATISTIQUES ===");
         System.out.println("Enclos : " + enclosList.size());

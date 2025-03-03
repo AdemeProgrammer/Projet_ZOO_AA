@@ -49,9 +49,9 @@ public class Soigneur {
                 && !estOccupe;
     }
 
-    public boolean diagnostiquer() {
-        if (estOccupe) {
-            System.out.println("Le soigneur est occupé à l'entretien !");
+    public boolean diagnostiquer(){
+        if (estOccupe){
+            System.out.println("Le soigneur est occupé il ne va donc pouvoir se charger de ça !");
             return false;
         }
         return Math.random() < 0.5;
