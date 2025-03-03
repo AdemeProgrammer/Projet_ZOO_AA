@@ -1,7 +1,9 @@
 package Zoo.animaux;
 
 public class Lion extends Animal {
-    public Lion(String animal){
-        super(animal);
+    private boolean criniere;
+    public Lion(int id_animal, String nomAnimal,String sexeAnimal, int ageAnimal, boolean animalFaible, boolean criniere) {
+        super(Animal);
+        this.criniere = criniere;
     }
 }

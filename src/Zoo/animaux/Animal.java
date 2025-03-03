@@ -1,5 +1,7 @@
 package Zoo.animaux;
 
+import org.w3c.dom.ls.LSOutput;
+
 public class Animal {
     public String getSexeAnimal() {
         return sexeAnimal;
@@ -47,11 +49,20 @@ public class Animal {
     private int ageAnimal;
     private boolean animalFaible;
 
-    public Animal(int id_animal, String nomAnimal) {
+    public Animal(int id_animal, String nomAnimal,String sexeAnimal, int ageAnimal, boolean animalFaible) {
         this.id_animal = id_animal;
         this.nomAnimal = nomAnimal;
         this.sexeAnimal = sexeAnimal;
         this.ageAnimal = ageAnimal;
         this.animalFaible = animalFaible;
+    }
+
+    public String faireDubruit(){
+        System.out.println("Agrougrou Agrougrou l'animal sauvage !!!");
+        return faireDubruit();
+    }
+
+    public String seDeplacer(){
+        return null;
     }
 }

@@ -1,4 +1,4 @@
-package Zoo;
+package Zoo.Personne;
 
 public class Soigneur {
     private String nom;
