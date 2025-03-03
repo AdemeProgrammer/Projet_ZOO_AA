@@ -5,6 +5,7 @@ import Zoo.animaux.*;
 import Zoo.Personne.*;
 import Zoo.enclos.Enclos;
 
+import java.sql.SQLOutput;
 import java.util.Scanner;
 import java.util.ArrayList;
 import java.util.List;
@@ -27,11 +28,12 @@ public class Application {
             switch (choix) {
                 case 1: creerEnclos(); break;
                 case 2: ajouterAnimal(); break;
-                case 3: ajouterSoigneur(); break;
-                case 4: simulerJournee(); break;
-                case 5: vendreBillet(); break;
-                case 6: afficherStatistiques(); break;
-                case 7: running = false; break;
+                case 3: ajouterClient(); break;
+                case 4: ajouterSoigneur(); break;
+                case 5: simulerJournee(); break;
+                case 6: vendreBillet(); break;
+                case 7: afficherStatistiques(); break;
+                case 8: running = false; break;
                 default: System.out.println("Option invalide !");
             }
         }
@@ -43,11 +45,12 @@ public class Application {
         System.out.println("\n=== MENU ZOO ===");
         System.out.println("1. Créer un enclos");
         System.out.println("2. Ajouter un animal");
-        System.out.println("3. Engager un soigneur");
-        System.out.println("4. Simuler une journée");
-        System.out.println("5. Vendre un billet");
-        System.out.println("6. Statistiques");
-        System.out.println("7. Quitter");
+        System.out.println("3. Ajouter un client");
+        System.out.println("4. Engager un soigneur");
+        System.out.println("5. Simuler une journée");
+        System.out.println("6. Vendre un billet");
+        System.out.println("7. Statistiques");
+        System.out.println("8. Quitter");
         System.out.print("Votre choix : ");
     }
 
@@ -104,6 +107,15 @@ public class Application {
         Soigneur s = new Soigneur(nom, "", "Lion"); // Spécialiste lions par défaut
         soigneurs.add(s);
         System.out.println(nom + " est prêt à travailler ! 🩺");
+    }
+
+    private static void ajouterClient() {
+        System.out.print("Nom et prénom du client : ");
+        String nom = scanner.nextLine();
+        System.out.println("Age du client : ");
+        int age = scanner.nextInt();
+
+        Client client = new Client("",age);
     }
 
     // ================= SIMULATION =================
