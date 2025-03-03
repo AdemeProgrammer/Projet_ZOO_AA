@@ -44,7 +44,6 @@ public class Soigneur {
         this.estOccupe = false;
     }
 
-    // ================= METHODES METIER =================
     public boolean peutSoigner(Animal animal) {
         return animal.getClass().getSimpleName().equalsIgnoreCase(this.specialite)
                 && !estOccupe;
@@ -55,12 +54,12 @@ public class Soigneur {
             System.out.println("Le soigneur est occupé à l'entretien !");
             return false;
         }
-        return Math.random() < 0.5; // 50% de chance de détecter une maladie
+        return Math.random() < 0.5;
     }
 
     public void soigner(Animal animal) {
         if (peutSoigner(animal) && diagnostiquer()) {
-            animal.setAnimalFaible(false); // Supposons que cette méthode existe dans Animal
+            animal.setAnimalFaible(false);
             System.out.println(animal.getNomAnimal() + " a été soigné !");
         } else {
             System.out.println("Soin impossible !");

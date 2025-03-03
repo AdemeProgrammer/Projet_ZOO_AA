@@ -22,7 +22,7 @@ public class Application {
         while (running) {
             afficherMenuPrincipal();
             int choix = scanner.nextInt();
-            scanner.nextLine(); // Nettoie l'entrée
+            scanner.nextLine();
 
             switch (choix) {
                 case 1: creerEnclos(); break;
@@ -38,7 +38,6 @@ public class Application {
         System.out.println("Au revoir ! 🦁");
     }
 
-    // ================= AFFICHAGE DU MENU =================
     private static void afficherMenuPrincipal() {
         System.out.println("\n=== MENU ZOO ===");
         System.out.println("1. Créer un enclos");
@@ -51,7 +50,6 @@ public class Application {
         System.out.print("Votre choix : ");
     }
 
-    // ================= CRÉER UN ENCLOS =================
     private static void creerEnclos() {
         System.out.print("Numéro de l'enclos : ");
         int numero = scanner.nextInt();
@@ -62,7 +60,6 @@ public class Application {
         System.out.println("Enclos #" + numero + " créé ! 🏟️");
     }
 
-    // ================= AJOUTER UN ANIMAL =================
     private static void ajouterAnimal() {
         if (enclosList.isEmpty()) {
             System.out.println("Créez d'abord un enclos !");
@@ -72,7 +69,6 @@ public class Application {
         System.out.print("Type (Lion/Oiseau/Serpent) : ");
         String type = scanner.nextLine();
 
-        // Création avec des valeurs par défaut
         Animal animal = null;
         int id = enclosList.get(0).getAnimaux().size() + 1;
 
@@ -96,34 +92,29 @@ public class Application {
         }
     }
 
-    // ================= AJOUTER UN SOIGNEUR =================
     private static void ajouterSoigneur() {
         System.out.print("Nom du soigneur : ");
         String nom = scanner.nextLine();
 
-        Soigneur s = new Soigneur(nom, "", "Lion"); // Spécialiste lions par défaut
+        Soigneur s = new Soigneur(nom, "", "Lion");
         soigneurs.add(s);
         System.out.println(nom + " est prêt à travailler ! 🩺");
     }
 
-    // ================= SIMULATION =================
     private static void simulerJournee() {
         System.out.println("\n=== NOUVELLE JOURNÉE ===");
 
-        // Dégradation des enclos
         for (Enclos e : enclosList) {
             e.setProprete(e.getProprete() - 20);
             System.out.println("Propreté enclos #" + e.getNumeroEnclos() + " : " + e.getProprete() + "%");
         }
 
-        // Soigneurs nettoient
         if (!soigneurs.isEmpty()) {
             soigneurs.get(0).setEstOccupe(true);
             System.out.println(soigneurs.get(0).getNom() + " nettoie les enclos ! 🧼");
         }
     }
 
-    // ================= VENTE DE BILLETS =================
     private static void vendreBillet() {
         System.out.print("Âge du visiteur : ");
         int age = scanner.nextInt();
@@ -138,7 +129,6 @@ public class Application {
         System.out.println("Billet vendu : " + prix + " € 💰");
     }
 
-    // ================= STATISTIQUES =================
     private static void afficherStatistiques() {
         System.out.println("\n=== STATISTIQUES ===");
         System.out.println("Enclos : " + enclosList.size());
