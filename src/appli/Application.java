@@ -22,7 +22,7 @@ public class Application {
         while (running) {
             afficherMenuPrincipal();
             int choix = scanner.nextInt();
-            scanner.nextLine(); // Nettoie l'entrée
+            scanner.nextLine();
 
             switch (choix) {
                 case 1: creerEnclos(); break;
@@ -97,7 +97,7 @@ public class Application {
         System.out.print("Entrez le nom du soigneur : ");
         String nom = scanner.nextLine();
 
-        Soigneur s = new Soigneur(nom, "", "Lion"); // Spécialiste lions par défaut
+        Soigneur s = new Soigneur(nom, "", "Lion");
         soigneurs.add(s);
         System.out.println(nom + " est prêt à travailler !");
     }
